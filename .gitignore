@@ -3,10 +3,14 @@ progress/
 PLAN.md
 VERIFICATION.md
 laby_python3.pdf
-lab1/REPORT.md
-lab1/SUMMARY.md
-lab2/REPORT.md
-lab2/SUMMARY.md
+lab*/REPORT.md
+lab*/SUMMARY.md
+
+# Вспомогательные скрипты (не часть лабораторных)
+lab3/blog/check_db.py
+lab3/blog/setup_shared_db.py
+lab3/blog/add_articles.py
+lab3/blog/reset_password.py
 
 # Python
 __pycache__/
