@@ -1,0 +1,43 @@
+/* Общие стили для страницы */
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #333;
+}
+
+/* Заголовок первого уровня со шрифтом с засечками */
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Стили для таблицы */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #333;
+}
+
+table tr td, table tr th {
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+/* Стили для параграфов и заголовков */
+p, h4 {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+/* Стили для картинок */
+img {
+    height: 30px;
+    width: auto;
+}
