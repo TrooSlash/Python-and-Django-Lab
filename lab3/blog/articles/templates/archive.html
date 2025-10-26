@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Архив статей</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Блог</h1>
+    <h2>Архив статей</h2>
+    
+    {% for post in posts %}
+    <div class="one-post">
+        <h2>{{ post.title }}</h2>
+        <div class="author">Автор: {{ post.author.username }}</div>
+        <div class="date">Дата: {{ post.created_date }}</div>
+        <p>{{ post.get_excerpt }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
