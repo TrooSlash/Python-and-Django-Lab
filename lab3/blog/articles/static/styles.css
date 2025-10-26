@@ -32,21 +32,54 @@ h2 {
     color: #2c3e50;
 }
 
-.author {
+.article-author {
     color: #7f8c8d;
     font-size: 14px;
     margin-bottom: 5px;
 }
 
-.date {
+.article-created-date {
     color: #95a5a6;
     font-size: 14px;
     margin-bottom: 15px;
 }
 
-.one-post p {
+.article-text {
     line-height: 1.6;
     color: #555;
+}
+
+/* Стили для сворачивания статей */
+.fold-button {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.fold-button:hover {
+    background-color: #7f8c8d;
+}
+
+.one-post.folded .article-text {
+    display: none;
+}
+
+.one-post.folded .article-author {
+    display: none;
+}
+
+.one-post.folded .article-created-date {
+    display: none;
+}
+
+.one-post.folded .read-more {
+    display: none;
 }
 
 /* Ссылки */
@@ -133,6 +166,11 @@ a:hover {
 .header {
     text-align: center;
     margin-bottom: 30px;
+    position: relative;
+}
+
+.header h1 {
+    margin-bottom: 10px;
 }
 
 .header h1 a {
@@ -142,6 +180,57 @@ a:hover {
 
 .header h1 a:hover {
     color: #3498db;
+}
+
+.auth-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+}
+
+.auth-links a {
+    color: #3498db;
+    margin: 0 5px;
+}
+
+.auth-links span {
+    color: #7f8c8d;
+}
+
+/* Стили для форм авторизации */
+.auth-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.auth-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+}
+
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 /* Стили для формы создания статьи */

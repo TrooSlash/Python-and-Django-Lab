@@ -10,6 +10,13 @@
 <body>
     <div class="header">
         <h1><a href="/">Блог</a></h1>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <span>Привет, {{ user.username }}!</span>
+            {% else %}
+                <a href="/register/">Регистрация</a> | <a href="/login/">Вход</a>
+            {% endif %}
+        </div>
     </div>
 
     <div class="create-post-container">

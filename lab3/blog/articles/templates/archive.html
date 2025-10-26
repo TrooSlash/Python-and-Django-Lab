@@ -3,24 +3,37 @@
 <head>
     <title>Архив статей</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/js/helloworld.js"></script>
+    <script src="/static/js/fold-post.js"></script>
 </head>
 <body>
-    <h1>Блог</h1>
+    <div class="header">
+        <h1>Блог</h1>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <span>Привет, {{ user.username }}!</span>
+            {% else %}
+                <a href="/register/">Регистрация</a> | <a href="/login/">Вход</a>
+            {% endif %}
+        </div>
+    </div>
+    
     <h2>Архив статей</h2>
     
     {% if user.is_authenticated %}
     <div class="create-button-container">
-        <a href="/article/create/" class="btn-create">+ Создать новую статью</a>
+        <a href="/article/new/" class="btn-create">+ Создать новую статью</a>
     </div>
     {% endif %}
     
     {% for post in posts %}
     <div class="one-post">
         <h2><a href="/article/{{ post.id }}/">{{ post.title }}</a></h2>
-        <div class="author">Автор: {{ post.author.username }}</div>
-        <div class="date">Дата: {{ post.created_date }}</div>
-        <p>{{ post.get_excerpt }}</p>
+        <div class="article-author">Автор: {{ post.author.username }}</div>
+        <div class="article-created-date">Дата: {{ post.created_date }}</div>
+        <p class="article-text">{{ post.get_excerpt }}</p>
         <a href="/article/{{ post.id }}/" class="read-more">Читать далее →</a>
+        <button class="fold-button">Свернуть</button>
     </div>
     {% endfor %}
 </body>
