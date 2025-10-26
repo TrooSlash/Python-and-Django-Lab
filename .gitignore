@@ -6,6 +6,7 @@ laby_python3.pdf
 lab*/REPORT.md
 lab*/SUMMARY.md
 TESTING.md
+.implementation_details.md
 
 # Вспомогательные скрипты (не часть лабораторных)
 lab3/blog/check_db.py
