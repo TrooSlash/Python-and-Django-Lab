@@ -1,0 +1,60 @@
+# Файлы для ИИ агента (не загружать на Git)
+progress/
+PLAN.md
+VERIFICATION.md
+laby_python3.pdf
+lab1/REPORT.md
+lab1/SUMMARY.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+local_settings.py
+
+# Виртуальное окружение
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Другое
+*.bak
+*.tmp
+*.temp
+.cache/
