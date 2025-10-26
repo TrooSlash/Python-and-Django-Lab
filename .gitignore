@@ -5,6 +5,7 @@ VERIFICATION.md
 laby_python3.pdf
 lab*/REPORT.md
 lab*/SUMMARY.md
+TESTING.md
 
 # Вспомогательные скрипты (не часть лабораторных)
 lab3/blog/check_db.py
@@ -32,6 +33,9 @@ db.sqlite3-journal
 media/
 staticfiles/
 local_settings.py
+
+# Общая база данных (не загружать)
+shared_db/
 
 # Виртуальное окружение
 venv/
