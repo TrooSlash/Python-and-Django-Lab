@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/">Блог</a></h1>
+    </div>
+    
+    <div class="article-detail">
+        <h1 class="article-title">{{ post.title }}</h1>
+        
+        <div class="article-info">
+            <span class="author">Автор: {{ post.author.username }}</span>
+            <span class="date">Дата: {{ post.created_date }}</span>
+        </div>
+        
+        <div class="article-content">
+            <p>{{ post.text }}</p>
+        </div>
+        
+        <div class="back-link">
+            <a href="/">← Вернуться к списку статей</a>
+        </div>
+    </div>
+</body>
+</html>

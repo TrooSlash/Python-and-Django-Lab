@@ -48,3 +48,98 @@ h2 {
     line-height: 1.6;
     color: #555;
 }
+
+/* Ссылки */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.one-post h2 a {
+    color: #2c3e50;
+}
+
+.one-post h2 a:hover {
+    color: #3498db;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Страница отдельной статьи */
+.article-detail {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-title {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.article-info {
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.article-info span {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.article-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.article-content p {
+    margin-bottom: 15px;
+}
+
+.back-link {
+    border-top: 2px solid #ecf0f1;
+    padding-top: 20px;
+}
+
+.back-link a {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.back-link a:hover {
+    color: #3498db;
+}
+
+/* Хедер */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.header h1 a:hover {
+    color: #3498db;
+}
