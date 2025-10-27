@@ -1,4 +1,4 @@
-# Лабораторные работы по Python и Django# Python и Django
+# Лабораторные работы по Python и Django
 
 
 
@@ -6,9 +6,7 @@
 
 
 
-## Что я сделал```
-
-cd lab3/blog
+## Что я сделал
 
 ### Лабораторная работа №1 - Основы Python и Djangopython manage.py runserver
 
@@ -136,5 +134,3 @@ p33/
 ✅ JavaScript для интерактивности
 
 ---
-
-*Делал в октябре 2025 года*
