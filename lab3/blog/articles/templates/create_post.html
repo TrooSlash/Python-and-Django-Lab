@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- 
+    Лабораторная работа №6 - Страница создания статьи
+    
+    Форма для написания новой статьи.
+    Доступна только авторизованным пользователям.
+    Данные обрабатываются в функции create_post() в views.py
+-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать статью - Блог</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/">Блог</a></h1>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <span>Привет, {{ user.username }}!</span>
+            {% else %}
+                <a href="/register/">Регистрация</a> | <a href="/login/">Вход</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="create-post-container">
+        <h2>Создать новую статью</h2>
+        
+        <form method="POST" class="create-post-form">
+            {% csrf_token %}
+            
+            <!-- Поле для заголовка - максимум 200 символов (как в модели) -->
+            <div class="form-group">
+                <label for="title">Заголовок:</label>
+                <input type="text" id="title" name="title" required maxlength="200">
+            </div>
+            
+            <!-- Многострочное поле для текста статьи -->
+            <div class="form-group">
+                <label for="text">Текст статьи:</label>
+                <textarea id="text" name="text" rows="10" required></textarea>
+            </div>
+            
+            <!-- Кнопки действий -->
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Опубликовать</button>
+                <a href="/" class="btn-cancel">Отмена</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

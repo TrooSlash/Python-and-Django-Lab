@@ -1,0 +1,415 @@
+/*
+ * Лабораторная работа №5-7 - Стили для блога
+ * 
+ * Этот CSS файл оформляет весь блог - страницы со статьями,
+ * формы регистрации и входа, создание постов.
+ * 
+ * Я использую цветовую схему с синим (#3498db) и серым (#2c3e50) цветами.
+ * Все блоки имеют белый фон с лёгкой тенью (box-shadow).
+ */
+
+/* ==========================================
+   ОСНОВНЫЕ СТИЛИ
+   ========================================== */
+
+/* Стили для body - основа всей страницы */
+body {
+    font-family: Arial, sans-serif;  /* Простой читаемый шрифт */
+    background-color: #f5f5f5;       /* Светло-серый фон */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Заголовки разных уровней */
+h1 {
+    color: #2c3e50;                  /* Тёмно-синий цвет */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #3498db;                  /* Ярко-синий цвет */
+    margin-top: 0;
+}
+
+/* ==========================================
+   СТИЛИ ДЛЯ СПИСКА СТАТЕЙ
+   ========================================== */
+
+/* Карточка одной статьи в списке */
+.one-post {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;                          /* Скруглённые углы */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);       /* Лёгкая тень */
+}
+
+.one-post h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* Информация об авторе и дате */
+.article-author {
+    color: #7f8c8d;                  /* Серый цвет для мета-информации */
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.article-created-date {
+    color: #95a5a6;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Текст статьи */
+.article-text {
+    line-height: 1.6;                /* Межстрочный интервал для читаемости */
+    color: #555;
+}
+
+/* ==========================================
+   СТИЛИ ДЛЯ СВОРАЧИВАНИЯ СТАТЕЙ (Lab 7)
+   ========================================== */
+
+/* Кнопка "Свернуть/Развернуть" */
+.fold-button {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;                 /* Курсор "рука" при наведении */
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* Эффект при наведении на кнопку */
+.fold-button:hover {
+    background-color: #7f8c8d;
+}
+
+/* Когда статья свёрнута (класс "folded") - скрываем элементы */
+/* display: none полностью убирает элемент со страницы */
+.one-post.folded .article-text {
+    display: none;
+}
+
+.one-post.folded .article-author {
+    display: none;
+}
+
+.one-post.folded .article-created-date {
+    display: none;
+}
+
+.one-post.folded .read-more {
+    display: none;
+}
+
+/* ==========================================
+   ССЫЛКИ
+   ========================================== */
+
+/* Общие стили для всех ссылок */
+a {
+    color: #3498db;
+    text-decoration: none;           /* Убираем подчёркивание */
+    transition: color 0.3s;          /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении на ссылку */
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Ссылки в заголовках статей */
+.one-post h2 a {
+    color: #2c3e50;
+}
+
+.one-post h2 a:hover {
+    color: #3498db;
+}
+
+/* Ссылка "Читать далее" */
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* ==========================================
+   СТРАНИЦА ОТДЕЛЬНОЙ СТАТЬИ
+   ========================================== */
+
+/* Контейнер для детального просмотра статьи */
+.article-detail {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;                /* Ограничиваем ширину для читаемости */
+    margin: 0 auto;                  /* Центрируем на странице */
+}
+
+.article-title {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Информация под заголовком (автор, дата) */
+.article-info {
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.article-info span {
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+/* Содержимое статьи */
+.article-content {
+    font-size: 16px;
+    line-height: 1.8;                /* Большой межстрочный интервал */
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.article-content p {
+    margin-bottom: 15px;
+}
+
+/* Ссылка "Назад к списку" */
+.back-link {
+    border-top: 2px solid #ecf0f1;
+    padding-top: 20px;
+}
+
+.back-link a {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.back-link a:hover {
+    color: #3498db;
+}
+
+/* ==========================================
+   ШАПКА САЙТА (HEADER)
+   ========================================== */
+
+/* Контейнер шапки */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;              /* Нужно для позиционирования ссылок авторизации */
+}
+
+.header h1 {
+    margin-bottom: 10px;
+}
+
+/* Ссылка-заголовок сайта */
+.header h1 a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.header h1 a:hover {
+    color: #3498db;
+}
+
+/* Ссылки авторизации в правом верхнем углу */
+.auth-links {
+    position: absolute;              /* Абсолютное позиционирование относительно header */
+    top: 0;
+    right: 0;
+    font-size: 14px;
+}
+
+.auth-links a {
+    color: #3498db;
+    margin: 0 5px;
+}
+
+.auth-links span {
+    color: #7f8c8d;
+}
+
+/* ==========================================
+   ФОРМЫ АВТОРИЗАЦИИ (Lab 6)
+   ========================================== */
+
+/* Контейнер для формы входа/регистрации */
+.auth-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 400px;                /* Небольшая ширина для формы */
+    margin: 50px auto;
+}
+
+.auth-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-form {
+    margin-top: 20px;
+}
+
+/* Ссылка внизу формы (например "Уже есть аккаунт? Войти") */
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+}
+
+/* Сообщение об ошибке - красный блок */
+.error-message {
+    background-color: #e74c3c;       /* Красный цвет */
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ==========================================
+   ФОРМА СОЗДАНИЯ СТАТЬИ (Lab 6)
+   ========================================== */
+
+/* Контейнер с кнопкой "Создать статью" на главной */
+.create-button-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Зелёная кнопка "Создать статью" */
+.btn-create {
+    display: inline-block;
+    background-color: #27ae60;       /* Зелёный цвет */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-create:hover {
+    background-color: #229954;
+    text-decoration: none;
+}
+
+/* Контейнер страницы создания статьи */
+.create-post-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.create-post-container h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.create-post-form {
+    margin-top: 20px;
+}
+
+/* Группа полей формы (label + input) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Подпись к полю */
+.form-group label {
+    display: block;                  /* Чтобы label был на отдельной строке */
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Поля ввода текста */
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;          /* Чтобы padding не увеличивал ширину */
+}
+
+/* Эффект при фокусе на поле (когда кликаешь на него) */
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;                   /* Убираем стандартную рамку браузера */
+    border-color: #3498db;           /* Синяя рамка */
+}
+
+/* Многострочное поле для текста статьи */
+.form-group textarea {
+    resize: vertical;                /* Можно менять только высоту */
+    min-height: 200px;
+}
+
+/* Контейнер с кнопками формы */
+.form-actions {
+    display: flex;                   /* Flexbox для расположения кнопок в ряд */
+    gap: 10px;                       /* Отступ между кнопками */
+    margin-top: 25px;
+}
+
+/* Синяя кнопка "Опубликовать" */
+.btn-submit {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Серая кнопка "Отмена" */
+.btn-cancel {
+    background-color: #95a5a6;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.btn-cancel:hover {
+    background-color: #7f8c8d;
+    text-decoration: none;
+}
+

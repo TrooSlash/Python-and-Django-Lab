@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архив статей</title>
+    <!-- Подключаем стили CSS -->
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Подключаем JavaScript файлы (Lab 7) -->
+    <script src="/static/js/helloworld.js"></script>
+    <script src="/static/js/fold-post.js"></script>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <div class="header">
+        <h1>Блог</h1>
+        <!-- Ссылки авторизации - разные для залогиненных и анонимных пользователей -->
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <!-- Если пользователь вошёл - показываем его имя -->
+                <span>Привет, {{ user.username }}!</span>
+            {% else %}
+                <!-- Если не вошёл - показываем ссылки на регистрацию и вход -->
+                <a href="/register/">Регистрация</a> | <a href="/login/">Вход</a>
+            {% endif %}
+        </div>
+    </div>
+    
+    <h2>Архив статей</h2>
+    
+    <!-- Кнопка создания статьи - только для авторизованных пользователей -->
+    {% if user.is_authenticated %}
+    <div class="create-button-container">
+        <a href="/article/new/" class="btn-create">+ Создать новую статью</a>
+    </div>
+    {% endif %}
+    
+    <!-- Цикл по всем статьям - posts передаётся из views.py -->
+    {% for post in posts %}
+    <div class="one-post">
+        <!-- Заголовок статьи со ссылкой на полный текст -->
+        <h2><a href="/article/{{ post.id }}/">{{ post.title }}</a></h2>
+        <!-- Мета-информация: автор и дата -->
+        <div class="article-author">Автор: {{ post.author.username }}</div>
+        <div class="article-created-date">Дата: {{ post.created_date }}</div>
+        <!-- Превью текста - метод get_excerpt возвращает первые 100 символов -->
+        <p class="article-text">{{ post.get_excerpt }}</p>
+        <a href="/article/{{ post.id }}/" class="read-more">Читать далее →</a>
+        <!-- Кнопка сворачивания - JavaScript обрабатывает клик (Lab 7) -->
+        <button class="fold-button">Свернуть</button>
+    </div>
+    {% endfor %}
+</body>
+</html>

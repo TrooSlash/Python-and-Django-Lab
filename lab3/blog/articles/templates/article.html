@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 
+    Лабораторная работа №5 - Страница отдельной статьи
+    
+    Этот шаблон показывает полный текст одной статьи.
+    Переменная post передаётся из функции get_article() в views.py
+-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок страницы = заголовок статьи -->
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Шапка с ссылкой на главную -->
+    <div class="header">
+        <h1><a href="/">Блог</a></h1>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <span>Привет, {{ user.username }}!</span>
+            {% else %}
+                <a href="/register/">Регистрация</a> | <a href="/login/">Вход</a>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Контейнер с деталями статьи -->
+    <div class="article-detail">
+        <h1 class="article-title">{{ post.title }}</h1>
+        
+        <!-- Информация об авторе и дате -->
+        <div class="article-info">
+            <span class="author">Автор: {{ post.author.username }}</span>
+            <span class="date">Дата: {{ post.created_date }}</span>
+        </div>
+        
+        <!-- Полный текст статьи -->
+        <div class="article-content">
+            <p>{{ post.text }}</p>
+        </div>
+        
+        <!-- Ссылка назад -->
+        <div class="back-link">
+            <a href="/">← Вернуться к списку статей</a>
+        </div>
+    </div>
+</body>
+</html>

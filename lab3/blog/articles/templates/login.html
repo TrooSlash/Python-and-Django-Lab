@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- 
+    Лабораторная работа №6 - Страница входа (авторизации)
+    
+    Форма для входа зарегистрированных пользователей.
+    При отправке формы данные уходят в функцию login_view() в views.py
+-->
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Блог</title>
+    <!-- {% load static %} загружает тег для работы со статическими файлами -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/">Блог</a></h1>
+    </div>
+
+    <div class="auth-container">
+        <h2>Вход</h2>
+        
+        <!-- Показываем ошибку если есть (например, неверный пароль) -->
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+        
+        <!-- method="POST" - отправляем данные безопасно (не в URL) -->
+        <form method="POST" class="auth-form">
+            <!-- csrf_token защищает от CSRF атак - Django требует его в каждой форме -->
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="username">Логин:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Войти</button>
+            </div>
+        </form>
+        
+        <p class="auth-link">Нет аккаунта? <a href="/register/">Зарегистрироваться</a></p>
+    </div>
+</body>
+</html>
